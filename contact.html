@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="Style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="icon" type="image/png" sizes="16x16" href="logo.png">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <div class="main">
+        <div class="navbar">
+            <img src="logo.png" class="logo">
+            <span class="vertical-line"></span>
+            <nav class="contact">
+                <i class="glyphicon glyphicon-envelope"></i> ICONSTRUCTION@gmail.com<br>
+                <i class="fa fa-phone"></i> +212 6 61 46 79 13<br>
+                <i class="fas fa-clock"></i>Open Hours: 08:00 am - 06:00 pm <br>
+            </nav>
+            <ul>
+                <li>
+                    <a href="index.html">HOME</a>
+                </li>
+                <span class="vertical-line1 "></span>
+                <li>
+                    <a href="aboutUs.html">ABOUT US</a>
+                </li>
+                <span class="vertical-line1 "></span>
+                <li>
+                    <div class="btn-group">
+                        <a type="button" data-toggle="dropdown">SERVICES <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="service.html">Civil Engineering and Construction</a></li>
+                            <li><a href="service.html">Pipeline sector</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <span class="vertical-line1 "></span>
+                <li>
+                    <div class="btn-group">
+                        <a type="button" data-toggle="dropdown">PROJECTS <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="ocpprojet.html">OCP Benguerir</a></li>
+                            <li><a href="benguerirprojet.html">Benguerir</a></li>
+                            <li><a href="essprojet.html">Essaouira</a></li>
+                            <li><a href="marrakechprojet.html">Marrakech</a></li>
+                            <li><a href="mohamadiaprojet.html">Mohamadia</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <span class="vertical-line1 "></span>
+                <li>
+                    <a href="contact.html">CONTACT US</a>
+                </li>
+            </ul>
+        </div>
+        <div class="container">
+            <div class="content-box">
+                <div class="left">
+                    <p>We will be glad to srve you...</p>
+                    <i class="fa fa-facebook"></i>
+                    <i class="fa fa-twitter"></i>
+                    <i class="fa fa-google"></i>
+                </div>
+                <div class="right">
+                    <form method="POST" action="javascript:sendMail()"></form>
+                    <h2>Contact Us</h2>
+                    <input type="text" class="field" id="name" placeholder="Your Name">
+                    <input type="email" class="field" id="email" placeholder="Your Email">
+                    <input type="text" class="field" id="phone" placeholder="Your Phone">
+                    <textarea class="field area" id="message" placeholder="Message"></textarea>
+                    <button class="btn" type="submit" onclick="sendMail()">Send</button>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+    <script async src='https://stackwhats.com/pixel/f9a4a714cd724dbae513a1cdb24e6d'></script>
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.1.1/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.1.1/firebase-analytics.js";
+        const firebaseConfig = {
+          apiKey: "AIzaSyC6p8qX1z2Hck3hy8Qdbqf4OVI_y-XtZwk",
+          authDomain: "iconstructionproject-e7c16.firebaseapp.com",
+          projectId: "iconstructionproject-e7c16",
+          storageBucket: "iconstructionproject-e7c16.appspot.com",
+          messagingSenderId: "300400028948",
+          appId: "1:300400028948:web:6536e3d77b783c5b21a601",
+          measurementId: "G-K9C5N78MLD"
+        };
+      
+        
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+        
+   async function getCities(db) {
+  const citiesCol = collection(db, 'cities');
+  const citySnapshot = await getDocs(citiesCol);
+  const cityList = citySnapshot.docs.map(doc => doc.data());
+  return cityList;
+}
+      </script>
+</body>
+<script language="Javascript" type="text/javascript">
+    function sendMail() {
+        var url = "mailto:" + encodeURIComponent(document.getElementById("email").value) +
+            "?subject=" + encodeURIComponent(document.getElementById("name").value) +
+            "&body=" + encodeURIComponent(document.getElementById("message").value);
+        document.location = url;
+    }
+</script>
+
+</html>
